@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public TextMeshProUGUI scoreText;
     public GameObject gameOverPanel;
+    public House houseMove;
 
     void Awake()
     {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     {
         score++;
         UpdateScore();
+
+        // Increase house speed every 5 points
+        houseMove.IncreaseSpeedIfNeeded(score);
     }
 
     void UpdateScore()
