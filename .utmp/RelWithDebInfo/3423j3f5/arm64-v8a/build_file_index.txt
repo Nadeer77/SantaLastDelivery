@@ -1,0 +1,3 @@
+/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/CMakeLists.txt
+/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/FramePacing/CMakeLists.txt
+/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt

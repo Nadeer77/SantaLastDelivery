@@ -13,6 +13,11 @@ public class House : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.isGameOver)
+        {
+            return;
+        }
+        
         transform.Translate(Vector2.right * direction * speed * Time.deltaTime);
 
         if (transform.position.x >= rightLimit)

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public GameObject gameOverPanel;
     public House houseMove;
+    public bool isGameOver = false;
+
 
     void Awake()
     {
@@ -18,9 +20,9 @@ public class GameManager : MonoBehaviour
         UpdateScore();
     }
 
-    public void AddScore()
+    public void AddScore(int value)
     {
-        score++;
+        score += value;
         UpdateScore();
 
         // Increase house speed every 5 points
@@ -34,13 +36,15 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (isGameOver) return;
+
+        isGameOver = true;
         gameOverPanel.SetActive(true);
-        Time.timeScale = 0f;
     }
+
 
     public void RestartGame()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
     }
 }

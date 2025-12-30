@@ -2,42 +2,85 @@ using UnityEngine;
 
 public class SantaRaycastThrow : MonoBehaviour
 {
-    public float rayDistance = 15f;
-    public LayerMask hitLayers;
+    public Transform rayOrigin;          // Santa / hand position
+    public float rayDistance = 20f;       // How far the ray goes
+    public LayerMask houseLayer;          // Assign House layer
+
+    private bool canScore = true;         // 🔒 Safety lock
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // works on PC, Android, Web
+        if (GameManager.Instance.isGameOver)
+            return;
+
+        bool isPressed =
+    #if UNITY_EDITOR
+            Input.GetMouseButtonDown(0);
+    #else
+            Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began;
+    #endif
+
+        if (isPressed)
         {
             ShootRay();
         }
     }
 
+
+    // ✅ Unified input (Editor + Android + WebGL)
+    bool IsTap()
+    {
+        if (Input.GetMouseButtonDown(0))
+            return true;
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            return true;
+
+        return false;
+    }
+
     void ShootRay()
     {
+        // 🔒 Prevent multiple hits from same tap
+        if (!canScore)
+            return;
+
         RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
+            rayOrigin.position,
             Vector2.up,
             rayDistance,
-            hitLayers
+            houseLayer
         );
 
-        Debug.DrawRay(transform.position, Vector2.up * rayDistance, Color.green, 0.3f);
+        // (Optional) Debug ray
+        Debug.DrawRay(rayOrigin.position, Vector2.up * rayDistance, Color.green, 0.2f);
 
         if (hit.collider != null)
         {
-            if (hit.collider.gameObject.layer == LayerMask.NameToLayer("House"))
+            int hitLayer = hit.collider.gameObject.layer;
+
+            // 🎯 HIT HOUSE
+            if (hitLayer == LayerMask.NameToLayer("House"))
             {
-                GameManager.Instance.AddScore();
+                canScore = false;
+                GameManager.Instance.AddScore(1);
+                Invoke(nameof(ResetScoreLock), 0.1f);
             }
-            else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("UpperBound"))
+            // ❌ HIT UPPER BOUND
+            else if (hitLayer == LayerMask.NameToLayer("UpperBound"))
             {
                 GameManager.Instance.GameOver();
             }
         }
         else
         {
+            // ❌ HIT NOTHING
             GameManager.Instance.GameOver();
         }
+    }
+
+    void ResetScoreLock()
+    {
+        canScore = true;
     }
 }

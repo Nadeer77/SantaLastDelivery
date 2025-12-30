@@ -1267,8 +1267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f175281808ce9cc089b558b1b5817b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rayOrigin: {fileID: 1149510027}
   rayDistance: 15
-  hitLayers:
+  houseLayer:
     serializedVersion: 2
     m_Bits: 768
 --- !u!1 &1229417999

@@ -1,0 +1,35 @@
+{
+  "buildFiles": [
+    "/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/CMakeLists.txt",
+    "/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/FramePacing/CMakeLists.txt",
+    "/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/Nadeer/Unity/Hub/Editor/6000.0.60f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/Nadeer/unity projects/SantaLastDelivery/.utmp/RelWithDebInfo/3423j3f5/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/Nadeer/Unity/Hub/Editor/6000.0.60f1/Editor/Data/PlaybackEngines/AndroidPlayer/SDK/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/Nadeer/unity projects/SantaLastDelivery/.utmp/RelWithDebInfo/3423j3f5/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "game::@d02bb112ea9f9c2ed29f": {
+      "artifactName": "game",
+      "abi": "arm64-v8a",
+      "output": "/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3423j3f5/obj/arm64-v8a/libgame.so",
+      "runtimeFiles": []
+    },
+    "swappywrapper::@7e25bd1f32ce224db4e9": {
+      "artifactName": "swappywrapper",
+      "abi": "arm64-v8a",
+      "output": "/home/Nadeer/unity projects/SantaLastDelivery/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/3423j3f5/obj/arm64-v8a/libswappywrapper.so",
+      "runtimeFiles": []
+    }
+  }
+}
