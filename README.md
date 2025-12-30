@@ -59,8 +59,16 @@ Santa Last Delivery is a simple Christmas-themed arcade game where players help 
 
 ---
 
+## 🎮 Play the Game
+You can play **Santa Last Delivery** here:
+👉 https://nadeer77.itch.io/santalastdelivery
+
+---
+
 ## 🧑‍💻 Author
-Mohammed Nadeer (Najji)
+**Mohammed Nadeer (Najji)**  
+Unity Game Developer 
+
 
 
 
